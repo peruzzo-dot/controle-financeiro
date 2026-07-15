@@ -3,16 +3,20 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Informe o tamanho do lado do quadrado:");
-
-        double lado = scanner.nextDouble();
-
-        double area = lado * lado;
-
-        System.out.println("A área do quadrado é: " + area);
-
+        var scanner = new Scanner(System.in);
+        System.out.println("Informe um número");
+        var number = scanner.nextInt();
+        var keepVerify = true;
+        while (keepVerify){
+            System.out.println("Informe o número para verificação");
+            var toVerify = scanner.nextInt();
+            if (toVerify < number){
+                System.out.printf("Informe um número maior que %s", number);
+                continue;
+            }
+            var result = toVerify % number;
+            keepVerify = result == 0;
+            System.out.printf("%s %% %s = %s", toVerify, number, result);
+        }
     }
 }
